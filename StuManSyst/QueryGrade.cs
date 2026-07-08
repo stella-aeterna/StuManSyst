@@ -1,4 +1,5 @@
 ﻿using StuManSyst.GradeMod;
+using StuManSyst.StuInforMod;
 using StuManSyst.Mode1;
 using System;
 using System.Collections.Generic;
@@ -21,29 +22,11 @@ namespace StuManSyst
         }
         public User currenUser;
         List<Score> scores = new List<Score>();
-
-        private void DoQuery(string tbStuId)
+        List<Student> students = new List<Student>();
+        private void DoQuery(string tbStuId = null, string tbQuCoId = null)
         {
             if (scores == null) return;
             List<Score> queryScores = new List<Score>();
-            foreach (Score s in scores)
-            {
-                if (s.StudentId == tbStuId)
-                {
-                    queryScores.Add(s);
-                }
-            }
-            dgScore.DataSource = null;
-            dgScore.DataSource = queryScores;
-        }
-
-
-        private void DoQuery1(string tbStuId = null, string tbQuCoId = null)
-        {
-            if (scores == null) return;
-
-            List<Score> queryScores = new List<Score>();
-
             foreach (Score s in scores)
             {
                 bool matchStudent = string.IsNullOrEmpty(tbStuId) || s.StudentId == tbStuId;
@@ -70,7 +53,15 @@ namespace StuManSyst
             if (currenUser != null && currenUser.Categeroy == "学生")
             {
                 // 学生只能看自己的成绩，禁用输入学号
-                tbQuStuId.Text = currenUser.UserName;
+                students = SuReadInfo.ReadStudent();
+                foreach (Student s in students)
+                {
+                    if (s.Name == currenUser.UserName)
+                    {
+                        tbQuStuId.Text = s.Id;
+                        break;
+                    }
+                }
                 tbQuStuId.Enabled = false;
                 DoQuery(currenUser.UserName);
             }
@@ -83,7 +74,7 @@ namespace StuManSyst
         private void btnQuScore_Click(object sender, EventArgs e)
         {
 
-            DoQuery1(tbQuStuId.Text, tbQuCoId.Text);
+            DoQuery(tbQuStuId.Text, tbQuCoId.Text);
         }
     }
 }
