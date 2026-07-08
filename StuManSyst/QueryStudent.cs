@@ -23,7 +23,21 @@ namespace StuManSyst
         public User currenUser;
         List<Student> students = new List<Student>();
 
-
+        private void DoQuery(string studentId)
+        {
+            if (students == null) return;
+            List<Student> queryStu = new List<Student>();
+            foreach (Student s in students)
+            {
+                if (s.Id == studentId)
+                {
+                    queryStu.Add(s);
+                }
+            }
+            dgStudent.DataSource = null;
+            dgStudent.DataSource = queryStu;
+            dgStudent.Columns["Photo"].Visible = false;
+        }
         private void QueryStudent_Load(object sender, EventArgs e)
         {
             dgStudent.DataSource = null;
@@ -33,9 +47,17 @@ namespace StuManSyst
             if (currenUser != null && currenUser.Categeroy == "学生")
             {
                 // 学生只能看自己的信息，禁用查询输入
-                tbQueryStu.Text = currenUser.UserName;
+                students = SuReadInfo.ReadStudent();
+                foreach (Student s in students)
+                {
+                    if (s.Name == currenUser.UserName)
+                    {
+                        tbQueryStu.Text = s.Id;
+                        break;
+                    }
+                }
+                tbQueryStu.Text = tbQueryStu.Text;
                 tbQueryStu.Enabled = false;
-                btnQueryStu.Enabled = false;
                 DoQuery(currenUser.UserName);
             }
             else
@@ -53,22 +75,6 @@ namespace StuManSyst
                 return;
             }
             DoQuery(tbQueryStu.Text);
-        }
-
-        private void DoQuery(string studentId)
-        {
-            if (students == null) return;
-            List<Student> queryStu = new List<Student>();
-            foreach (Student s in students)
-            {
-                if (s.Id == studentId)
-                {
-                    queryStu.Add(s);
-                }
-            }
-            dgStudent.DataSource = null;
-            dgStudent.DataSource = queryStu;
-            dgStudent.Columns["Photo"].Visible = false;
         }
 
         private void dgStudent_CellClick(object sender, DataGridViewCellEventArgs e)
