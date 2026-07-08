@@ -132,6 +132,12 @@
     <Compile Include="ModifyPass.Designer.cs">
       <DependentUpon>ModifyPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyStudent.Designer.cs">
+      <DependentUpon>ModifyStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="QueryGrade.Designer.cs">
       <DependentUpon>QueryGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryStudent.Designer.cs">
+      <DependentUpon>QueryStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryUser.cs">
       <SubType>Form</SubType>
@@ -201,6 +213,9 @@
     <EmbeddedResource Include="ModifyPass.resx">
       <DependentUpon>ModifyPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyStudent.resx">
+      <DependentUpon>ModifyStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifyUser.resx">
       <DependentUpon>ModifyUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QueryGrade.resx">
       <DependentUpon>QueryGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryStudent.resx">
+      <DependentUpon>QueryStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryUser.resx">
       <DependentUpon>QueryUser.cs</DependentUpon>

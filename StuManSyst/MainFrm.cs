@@ -208,12 +208,18 @@ namespace StuManSyst
 
         private void 学生信息修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ModifyStudent modifyStudent = new ModifyStudent();
+            modifyStudent.MdiParent = this;
+            modifyStudent.currenUser = currenUser;
+            modifyStudent.Show();
         }
 
         private void 学生信息查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            QueryStudent queryStudent = new QueryStudent();
+            queryStudent.MdiParent = this;
+            queryStudent.currenUser = currenUser;
+            queryStudent.Show();
         }
 
         private void MainFrm_FormClosed(object sender, FormClosedEventArgs e)
