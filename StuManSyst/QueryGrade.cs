@@ -63,7 +63,7 @@ namespace StuManSyst
                     }
                 }
                 tbQuStuId.Enabled = false;
-                DoQuery(currenUser.UserName);
+                DoQuery(tbQuStuId.Text);
             }
             else
             {

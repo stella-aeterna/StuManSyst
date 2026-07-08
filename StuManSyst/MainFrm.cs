@@ -201,7 +201,9 @@ namespace StuManSyst
 
         private void 学生信息删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DeleteStudent deleteStudent = new DeleteStudent();
+            deleteStudent.MdiParent = this;
+            deleteStudent.Show();
         }
 
         private void 学生信息修改ToolStripMenuItem_Click(object sender, EventArgs e)
