@@ -112,7 +112,7 @@
             this.Controls.Add(this.tbDeleStu);
             this.Controls.Add(this.label1);
             this.Name = "DeleteStudent";
-            this.Text = "学生信息修改";
+            this.Text = "学生信息删除";
             this.Load += new System.EventHandler(this.DeleteStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudent)).EndInit();
